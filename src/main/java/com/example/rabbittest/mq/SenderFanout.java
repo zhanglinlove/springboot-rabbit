@@ -4,18 +4,14 @@ import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
-
 @Component
-public class Sender {
+public class SenderFanout {
 
     @Autowired
     private AmqpTemplate amqpTemplate;
 
-    public void send() {
-        String content = "hello" + new Date();
-        System.out.println("send message:" + content);
-        amqpTemplate.convertAndSend("hello", content);
+    public void send(String message) {
+        System.out.println("发送的数据:" + message);
+        amqpTemplate.convertAndSend("fanout", "抛弃的数据", message);
     }
-    
 }
