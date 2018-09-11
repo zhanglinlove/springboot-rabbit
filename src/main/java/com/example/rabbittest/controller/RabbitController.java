@@ -54,4 +54,10 @@ public class RabbitController {
         sender.send4();
         return "topic3 success";
     }
+
+    @GetMapping("/test")
+    public String testInfo() {
+        sender.send5();
+        return "test success";
+    }
 }

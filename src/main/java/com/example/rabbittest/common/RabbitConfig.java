@@ -67,4 +67,9 @@ public class RabbitConfig {
 
         return BindingBuilder.bind(queueMessage2).to(exchange).with("topic.#");
     }
+
+    @Bean
+    public Queue testQueue() {
+        return new Queue("test");
+    }
 }

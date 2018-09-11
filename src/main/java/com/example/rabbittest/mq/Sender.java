@@ -32,4 +32,9 @@ public class Sender {
         String mess = "I am message topic3";
         amqpTemplate.convertAndSend("topicExchange", "topic.message2", mess);
     }
+
+    public void send5() {
+        String mess = "test send durable";
+        amqpTemplate.convertAndSend("test", mess);
+    }
 }
