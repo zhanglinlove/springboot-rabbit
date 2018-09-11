@@ -13,5 +13,15 @@ public class Receiver {
         System.out.println("receiver:" + hello);
     }
 
+    @RabbitListener(queues = "topic.message1")
+    @RabbitHandler
+    public void processor2(String hello) {
+        System.out.println("receiver2:" + hello);
+    }
 
+    @RabbitListener(queues = "topic.message2")
+    @RabbitHandler
+    public void processor3(String hello) {
+        System.out.println("receiver3:" + hello);
+    }
 }

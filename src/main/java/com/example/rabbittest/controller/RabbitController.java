@@ -36,4 +36,22 @@ public class RabbitController {
         senderFanout.send("广播信息发送");
         return "broadcast info";
     }
+
+    @GetMapping("/topic1")
+    public String topicInfo() {
+        sender.send2();
+        return "topic1 success";
+    }
+
+    @GetMapping("/topic2")
+    public String topicInfo2() {
+        sender.send3();
+        return "topic2 success";
+    }
+
+    @GetMapping("/topic3")
+    public String topicInfo3() {
+        sender.send4();
+        return "topic3 success";
+    }
 }
